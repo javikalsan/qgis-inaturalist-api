@@ -6,6 +6,7 @@ version=0.1.0
 qgisMinimumVersion=3.3
 author=Javier Calzado Sánchez
 email=jcalzadosanchez@gmail.com
+homepage=https://github.com/javikalsan/qgis-inaturalist-api
 repository=https://github.com/javikalsan/qgis-inaturalist-api
 tracker=https://github.com/javikalsan/qgis-inaturalist-api/issues
 tags=inaturalist,api

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DIST_NAME="qgis-inaturalist-api"
+DIST_NAME="qgis_inaturalist_api"
 
 mkdir -p $DIST_NAME
 
