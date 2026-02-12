@@ -1,0 +1,6 @@
+requests
+pre-commit
+black
+isort
+mypy
+bandit

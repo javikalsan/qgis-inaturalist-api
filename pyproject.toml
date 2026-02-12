@@ -1,0 +1,141 @@
+[project]
+name = "qgis_inaturalist_api"
+version = "0.1.0"
+description = "A QGIS plugin for loading and visualizing biodiversity observations from iNaturalist"
+authors = [
+    { name = "Javier Calzado Sánchez", email = "jcalzadosanchez@gmail.com" }
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.31.0",
+]
+keywords = ["qgis", "plugin", "inaturalist", "biodiversity", "observations", "ecology"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: GIS",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/javikalsan/qgis-inaturalist-api"
+Repository = "https://github.com/javikalsan/qgis-inaturalist-api"
+Issues = "https://github.com/javikalsan/qgis-inaturalist-api/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "black",
+    "isort",
+    "mypy",
+    "bandit",
+    "pytest>=7.0.0",
+    "pytest-cov",
+    "coverage",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["*"]
+exclude = ["tests*", "venv*", ".venv*", ".git*"]
+
+[tool.isort]
+profile = "black"
+known_first_party = [
+    "constants",
+    "exceptions",
+    "form_data",
+    "http_client",
+    "observation_parser",
+    "observations",
+    "places",
+    "qgis_layer_helper",
+    "inaturalist",
+    "inaturalist_dialog",
+]
+known_third_party = ["requests", "PyQt5", "qgis", "iso3166"]
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+skip = ["venv", ".venv", "__pycache__", ".git", "vendor"]
+
+[tool.bandit]
+exclude_dirs = [".venv", "venv", "tests", "vendor"]
+skips = ["B311"]  # Allow pseudo-random generator usage (used for API rate limiting delay)
+
+[tool.mypy]
+python_version = "3.9"
+ignore_missing_imports = true
+disable_error_code = ["import-untyped"]
+exclude = ["^venv/", "^.venv/", "^tests/", "^vendor/*"]
+explicit_package_bases = true
+warn_return_any = false
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.ruff]
+ignore = ["E402"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39', 'py310', 'py311', 'py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | venv
+  | __pycache__
+  | build
+  | dist
+  | vendor
+)/
+'''
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.coverage.run]
+source = ["."]
+omit = [
+    "tests/*",
+    "venv/*",
+    ".venv/*",
+    "*/__pycache__/*",
+    "*/ui/*",
+    "vendor/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]

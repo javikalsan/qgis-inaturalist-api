@@ -1,0 +1,13 @@
+__pycache__
+*pyc
+.ruff_cache
+.pytest_cache
+.mypy_cache
+
+.idea
+tags
+.vscode
+
+venv
+
+*.zip
