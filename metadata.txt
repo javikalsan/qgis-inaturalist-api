@@ -2,7 +2,7 @@
 name=Qgis iNaturalist API
 description=Load and visualize biodiversity observations from iNaturalist
 about=Load biodiversity observations from iNaturalist directly into QGIS. Filter by species, location, date range, username, or current map extent. Visualize nature observations with metadata including photos, observer info, and Wikipedia links. Perfect for ecological analysis, citizen science projects, and biodiversity mapping.
-version=0.1.0
+version=1.0
 qgisMinimumVersion=3.3
 author=Javier Calzado Sánchez
 email=jcalzadosanchez@gmail.com
@@ -10,9 +10,10 @@ homepage=https://github.com/javikalsan/qgis-inaturalist-api
 repository=https://github.com/javikalsan/qgis-inaturalist-api
 tracker=https://github.com/javikalsan/qgis-inaturalist-api/issues
 tags=inaturalist,api
-experimental=True
+experimental=False
 deprecated=False
 icon=icon.png
 
 changelog=
+    1.0 - MVP validated
     0.1.0 - Initial release
