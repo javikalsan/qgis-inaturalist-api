@@ -8,7 +8,7 @@ Load biodiversity observations from [iNaturalist](https://www.inaturalist.org/) 
 
 This plugin <b>is an independent project</b> and <b>not an official iNaturalist collaboration</b>.
 
-![QGIS iNaturalist API Demo](img/qgis-inaturalist-api-demo.gif)
+<img src="img/qgis-inaturalist-api-demo.gif" alt="QGIS iNaturalist API Demo" width="100%" />
 
 ## Plugin development
 
