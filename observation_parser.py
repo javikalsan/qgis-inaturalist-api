@@ -31,6 +31,7 @@ class ObservationParser:
             "author_url": ObservationParser.extract_author_url(observation),
             "location": observation.get("place_guess", "N/A"),
             "observation_url": observation.get("uri", "N/A"),
+            "positional_accuracy": observation.get("positional_accuracy", "N/A"),
         }
 
     @staticmethod

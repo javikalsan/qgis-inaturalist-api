@@ -64,6 +64,7 @@ class QgisLayerHelper:
                 QgsField("observation_url", QVariant.String),
                 QgsField("wikipedia_url", QVariant.String),
                 QgsField("author_url", QVariant.String),
+                QgsField("positional_accuracy", QVariant.String),
             ]
         )
         layer.updateFields()
@@ -109,6 +110,7 @@ class QgisLayerHelper:
                     parsed["observation_url"],
                     parsed["wikipedia_url"],
                     parsed["author_url"],
+                    parsed["positional_accuracy"],
                 ]
             )
             features.append(feature)

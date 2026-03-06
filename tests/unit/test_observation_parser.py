@@ -252,6 +252,16 @@ class TestObservationParser(unittest.TestCase):
             result["location"], "Taumarunui, Ruapehu District, Manawatū-Whanganui"
         )
 
+    def test_parse_observation_with_positional_accuracy(self):
+        """Test parsing observation with positional accuracy."""
+        observation = self.real_observation.copy()
+        observation["positional_accuracy"] = 1000.5
+
+        result = ObservationParser.parse_observation(observation)
+
+        self.assertIsNotNone(result)
+        self.assertEqual(result["positional_accuracy"], 1000.5)
+
 
 if __name__ == "__main__":
     unittest.main()
