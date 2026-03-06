@@ -255,6 +255,38 @@ class TestFormData(unittest.TestCase):
         self.assertEqual(result["user_id"], "   ")
         self.assertEqual(result["taxon_name"], "  \t  ")
 
+    def test_build_with_positional_accuracy_below_meters(self):
+        """Test that positional accuracy filter is included when specified."""
+        form_data = FormData(
+            username="johndoe",
+            species="Canis lupus",
+            date_from=date(2024, 1, 1),
+            date_to=date(2024, 12, 31),
+            country_id=None,
+            bbox=None,
+            positional_accuracy_below_meters=1000,
+        )
+
+        result = form_data.build()
+
+        self.assertIn("acc_below", result)
+        self.assertEqual(result["acc_below"], 1000)
+
+    def test_build_without_positional_accuracy_below_meters(self):
+        """Test that positional accuracy filter is excluded when not specified."""
+        form_data = FormData(
+            username="johndoe",
+            species="Canis lupus",
+            date_from=date(2024, 1, 1),
+            date_to=date(2024, 12, 31),
+            country_id=None,
+            bbox=None,
+        )
+
+        result = form_data.build()
+
+        self.assertNotIn("acc_below", result)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -11,6 +11,7 @@ class FormData:
     date_to: Optional[date]
     country_id: Optional[int]
     bbox: Optional[Dict[str, float]]
+    positional_accuracy_below_meters: Optional[int] = None
 
     def build(self) -> Dict[str, Any]:
         """Build API parameters from form data, filtering out empty values."""
@@ -26,5 +27,8 @@ class FormData:
             api_params.update({"place_id": self.country_id})
         if self.bbox is not None:
             api_params.update(self.bbox)
-
+        if self.positional_accuracy_below_meters is not None:
+            api_params.update(
+                {"acc_below": self.positional_accuracy_below_meters}
+            )
         return {key: value for key, value in api_params.items() if value is not None}

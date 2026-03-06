@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Dialog</class>
  <widget class="QDialog" name="Dialog">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -250,6 +253,70 @@
     <string>Stop</string>
    </property>
   </widget>
+  <widget class="QCheckBox" name="checkBox_positional_accuracy">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>300</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Positional accuracy:</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="spinBox_positional_accuracy">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>300</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="suffix">
+    <string/>
+   </property>
+   <property name="maximum">
+    <number>999999999</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_positional_accuracy_unit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>300</y>
+     <width>61</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>meters</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_positional_accuracy_below">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>300</y>
+     <width>61</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>below</string>
+   </property>
+  </widget>
  </widget>
  <tabstops>
   <tabstop>lineEdit_species</tabstop>
@@ -292,6 +359,54 @@
     <hint type="destinationlabel">
      <x>545</x>
      <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_positional_accuracy</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>spinBox_positional_accuracy</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>100</x>
+     <y>309</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>205</x>
+     <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_positional_accuracy</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_positional_accuracy_below</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>100</x>
+     <y>309</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>210</x>
+     <y>309</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_positional_accuracy</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label_positional_accuracy_unit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>100</x>
+     <y>309</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>330</x>
+     <y>309</y>
     </hint>
    </hints>
   </connection>

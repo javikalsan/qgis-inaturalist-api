@@ -44,6 +44,11 @@ class InaturalistDialog(QDialog):
                     if self.checkBox_map_extent.isChecked()
                     else None
                 ),
+                positional_accuracy_below_meters=(
+                    self.spinBox_positional_accuracy.value()
+                    if self.checkBox_positional_accuracy.isChecked()
+                    else None
+                ),
             )
 
             api_params = self.set_api_params(form_data)
