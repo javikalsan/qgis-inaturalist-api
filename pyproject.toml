@@ -1,6 +1,6 @@
 [project]
 name = "qgis_inaturalist_api"
-version = "1.0"
+version = "1.1.0"
 description = "A QGIS plugin for loading and visualizing biodiversity observations from iNaturalist"
 authors = [
     { name = "Javier Calzado Sánchez", email = "jcalzadosanchez@gmail.com" }
